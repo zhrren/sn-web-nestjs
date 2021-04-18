@@ -36,8 +36,8 @@ $ npm run test:cov
 npm i --save @nestjs/config
 npm i --save @nestjs/platform-fastify
 npm i --save @nestjs/typeorm typeorm pg
-npm i --save fastify point-of-view handlebars
 
-npm i express-session
-npm i -D @types/express-session
+npm i --save fastify point-of-view handlebars
+npm i --save fastify-secure-session
+npm i --save fastify-static
 ```

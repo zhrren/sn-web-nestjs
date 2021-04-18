@@ -12,23 +12,24 @@ async function bootstrap() {
       logger: ['log', 'error', 'warn', 'debug', 'verbose'],
     });
   app.useStaticAssets({
-    root: join(__dirname, '..', 'static'),
+    root: join(__dirname, '../../..', 'apps/web/static'),
     prefix: '/static/',
   });
   app.setViewEngine({
     engine: {
       handlebars: require('handlebars'),
     },
-    templates: join(__dirname, '..', 'views'),
+    templates: join(__dirname, '../../..', 'apps/web/views'),
   });
   await app.register(secureSession, {
     secret: 'verylogphebiggerthanthirtytwocarashars',
     salt: 'BVDbspDmq9RhDx6n',
   });
 
-  await app.listen(3000, () => {
+  await app.listen(14041, () => {
     console.log('http://127.0.0.1:14041')
   });
 }
 
 bootstrap();
+
