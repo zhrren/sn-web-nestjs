@@ -2,7 +2,8 @@ import {Module} from '@nestjs/common';
 import {AppController} from './app.controller';
 import {AppService} from './app.service';
 import {ConfigModule} from "@nestjs/config";
-import {loadSettings, settings} from "./config/settings";
+import {loadSettings} from "@app/core/config/settings";
+import {CoreModule} from "@app/core";
 
 @Module({
   imports: [
@@ -10,6 +11,7 @@ import {loadSettings, settings} from "./config/settings";
       isGlobal: true,
       load: [loadSettings],
     }),
+    CoreModule,
     // TypeOrmModule.forRoot({
     //   type: 'postgres',
     //   host: 'localhost',

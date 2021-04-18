@@ -3,14 +3,18 @@ import {FastifyAdapter, NestFastifyApplication,} from '@nestjs/platform-fastify'
 import secureSession from 'fastify-secure-session';
 import {join} from 'path';
 import {AppModule} from './app.module';
+import {Logger} from "@app/core/logging/logger.service";
+
+const logger = new Logger()
 
 async function bootstrap() {
   const app = await NestFactory.create<NestFastifyApplication>(
     AppModule,
     new FastifyAdapter(),
     {
-      logger: ['log', 'error', 'warn', 'debug', 'verbose'],
-    });
+      logger: logger
+    }
+  );
   app.useStaticAssets({
     root: join(__dirname, '../../..', 'apps/web/static'),
     prefix: '/static/',
@@ -26,8 +30,9 @@ async function bootstrap() {
     salt: 'BVDbspDmq9RhDx6n',
   });
 
-  await app.listen(14041, () => {
-    console.log('http://127.0.0.1:14041')
+  const port = 14041
+  await app.listen(port, () => {
+    logger.log(`http://127.0.0.1:${port}`)
   });
 }
 

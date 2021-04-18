@@ -40,4 +40,7 @@ npm i --save @nestjs/typeorm typeorm pg
 npm i --save fastify point-of-view handlebars
 npm i --save fastify-secure-session
 npm i --save fastify-static
+
+npm i --save winston
+npm i --save winston-daily-rotate-file
 ```
