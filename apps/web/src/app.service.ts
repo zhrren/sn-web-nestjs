@@ -7,7 +7,6 @@ export class AppService {
     private logger: Logger
   ) {
     logger.setContext(AppService.name)
-    logger.log('AppService init')
   }
   getHello(): string {
     return 'Hello World! [web]';

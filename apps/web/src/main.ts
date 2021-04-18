@@ -30,9 +30,11 @@ async function bootstrap() {
     salt: 'BVDbspDmq9RhDx6n',
   });
 
-  const port = 14041
-  await app.listen(port, () => {
-    logger.log(`http://127.0.0.1:${port}`)
+  await app.listen(14041, (error, address) => {
+    if (error) {
+      logger.log(error)
+    }
+    logger.log(`Application is running on: ${address}`);
   });
 }
 
